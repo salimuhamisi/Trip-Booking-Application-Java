@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AvailabletripsActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="393dp"
+        android:layout_height="58dp"
+        android:background="@color/design_default_color_background"
+        android:backgroundTint="@color/purple_200"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.22"
+        android:onClick="seats1">
+
+        <ImageView
+            android:id="@+id/trainicon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="4dp"
+            android:src="@drawable/train" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="7dp"
+            android:text="06:00AM "
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/seat1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/seat" />
+
+        <TextView
+            android:id="@+id/chair1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="7dp"
+            android:text="66 Seats"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/dollar1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/cash" />
+
+        <TextView
+            android:id="@+id/amount1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="7dp"
+            android:text="Amount"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="390dp"
+        android:layout_height="61dp"
+        android:background="@color/design_default_color_background"
+        android:backgroundTint="@color/purple_200"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.38"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.362"
+        android:onClick="seats2">
+
+        <ImageView
+            android:id="@+id/trainicon2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="4dp"
+            android:src="@drawable/train" />
+
+        <TextView
+            android:id="@+id/time2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="7dp"
+            android:text="1:00PM "
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/seat2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/seat" />
+
+        <TextView
+            android:id="@+id/chair"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="7dp"
+            android:text="66 Seats"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/dollar2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/cash" />
+
+        <TextView
+            android:id="@+id/amount2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="7dp"
+            android:text="Amount"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="393dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="97dp"
+        android:background="@color/design_default_color_background"
+        android:backgroundTint="@color/purple_200"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.414"
+        android:onClick="seats3">
+
+        <ImageView
+            android:id="@+id/trainicon3"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="4dp"
+            android:src="@drawable/train" />
+
+        <TextView
+            android:id="@+id/time3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="7dp"
+            android:text="6:00PM "
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/seat3"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/seat" />
+
+        <TextView
+            android:id="@+id/chair3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="7dp"
+            android:text="66 Seats"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/dollar3"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/cash" />
+
+        <TextView
+            android:id="@+id/amount3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="7dp"
+            android:text="Amount"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
