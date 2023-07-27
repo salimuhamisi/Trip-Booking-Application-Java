@@ -35,12 +35,12 @@
         app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/lemail"
+            android:id="@+id/clayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/loginemail"
                 android:layout_width="304dp"
                 android:layout_height="50dp"
                 android:background="@drawable/edit_text_background"
@@ -74,7 +74,7 @@
                 app:layout_constraintVertical_bias="0.596" />
 
             <Button
-                android:id="@+id/login"
+                android:id="@+id/loginButton"
                 android:layout_width="87dp"
                 android:layout_height="54dp"
                 android:backgroundTint="#673AB7"
@@ -116,7 +116,7 @@
                 app:layout_constraintVertical_bias="0.937" />
 
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/loginpassword"
                 android:layout_width="306dp"
                 android:layout_height="55dp"
                 android:background="@drawable/edit_text_background"
