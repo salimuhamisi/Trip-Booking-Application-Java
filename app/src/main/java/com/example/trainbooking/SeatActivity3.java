@@ -19,6 +19,7 @@ public class SeatActivity3 extends AppCompatActivity {
     private TextView SeatCount;
     private TextView SelectedSeatNumber;
     private List<Integer> SeatNumbers = new ArrayList<>();
+    private Button lastSelectedSeat = null;
 
 
     @Override
@@ -41,16 +42,26 @@ public class SeatActivity3 extends AppCompatActivity {
         // Check if the seat is already selected
         if (SeatNumbers.contains(seatNumber)) {
             // Deselect the seat
-            button.setBackgroundColor(102- 0 -153); // Change to the original color
+            button.setBackgroundColor(Color.GRAY); // Change to the original color
             button.setTag(0);
             seatCount--;
             SeatNumbers.remove(Integer.valueOf(seatNumber));
         } else {
-            // Select the seat
+            // Check if there was a previously selected seat
+            if (lastSelectedSeat != null) {
+                // Deselect the last selected seat
+                lastSelectedSeat.setBackgroundColor(Color.GRAY); // Change to the original color
+                lastSelectedSeat.setTag(0);
+                SeatNumbers.remove(Integer.valueOf(Integer.parseInt(lastSelectedSeat.getText().toString())));
+            }
+
+            // Select the new seat
             button.setBackgroundColor(Color.YELLOW); // Change to the desired new color
             button.setTag(1);
-            seatCount++;
+            seatCount = 1; // Set the seat count to 1 since only one seat is selected at a time
+            SeatNumbers.clear();
             SeatNumbers.add(seatNumber);
+            lastSelectedSeat = button; // Store the reference to the last selected seat
         }
 
         // Update the seat count TextView

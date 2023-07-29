@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
@@ -15,30 +16,48 @@ import java.text.DateFormat;
 import java.util.Calendar;
 
 public class BookingActivity extends AppCompatActivity {
+    private AutoCompleteTextView tFrom, tTo;
 
-    private String[] city_from = {"kisumu", "Nakuru", "Nairobi", "Mombasa"};
-    private String[] city_to = {"kisumu", "Nakuru", "Nairobi", "Mombasa"};
+    private String[] city_from = {"Kisumu", "Nakuru", "Nairobi", "Mombasa"};
+    private String[] city_to = {"Kisumu", "Nakuru", "Nairobi", "Mombasa"};
 
     private TextView displayDate;
     private TextView DatePicker;
+
+    private TextView viewPrice, travelDates;
+    private TripPrices tripPrices;
+    private Button search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
 
+        tripPrices = new TripPrices();
+
         DatePicker = findViewById(R.id.calendar);
         displayDate = (TextView) findViewById(R.id.travelDate);
+        viewPrice = findViewById(R.id.showprice);
+        tFrom = findViewById(R.id.from);
+        tTo = findViewById(R.id.towards);
+        search = findViewById(R.id.search);
+        travelDates = findViewById(R.id.travelDate);
 
-        AutoCompleteTextView autoCompleteTextView1 = findViewById(R.id.from);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calculateTripPrice();
+            }
+        });
+
+
         ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this,
                 android.R.layout.simple_dropdown_item_1line, city_from);
-        autoCompleteTextView1.setAdapter(adapter1);
+        tFrom.setAdapter(adapter1);
 
-        AutoCompleteTextView autoCompleteTextView2 = findViewById(R.id.towards);
         ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this,
                 android.R.layout.simple_dropdown_item_1line, city_to);
-        autoCompleteTextView2.setAdapter(adapter2);
+        tTo.setAdapter(adapter2);
 
         //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
@@ -48,6 +67,26 @@ public class BookingActivity extends AppCompatActivity {
                 showDatePickerDialog();
             }
         });
+    }
+
+    private void calculateTripPrice() {
+        String from = tFrom.getText().toString().trim();
+        String to = tTo.getText().toString().trim();
+        String Dates = travelDates.getText().toString().trim();
+
+        String tripSegment = from + "-" + to;
+        double price = tripPrices.getPrice(tripSegment);
+
+        viewPrice.setText("Ksh." + price);
+
+
+
+        // Create an Intent to start the next activity
+        Intent intent = new Intent(BookingActivity.this, AvailabletripsActivity.class);
+        intent.putExtra("price", price); // Pass the price value to the next activity
+        intent.putExtra("tripSegment", tripSegment); // Pass the tripSegment string to the next activity
+        intent.putExtra("travelDates", Dates); // Pass the travel dates string to the next activity
+        startActivity(intent);
     }
 
     private void showDatePickerDialog() {
@@ -72,9 +111,5 @@ public class BookingActivity extends AppCompatActivity {
 
         // Show the date picker dialog
         datePickerDialog.show();
-    }
-
-    public void toTrips(View view) {
-        startActivity(new Intent(BookingActivity.this, AvailabletripsActivity.class));
     }
 }

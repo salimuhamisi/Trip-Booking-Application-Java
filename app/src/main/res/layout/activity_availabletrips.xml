@@ -6,6 +6,61 @@
     android:layout_height="match_parent"
     tools:context=".AvailabletripsActivity">
 
+    <TextView
+        android:id="@+id/amountv"
+        android:layout_width="148dp"
+        android:layout_height="41dp"
+        android:text="Amount"
+        android:textColor="#C2185B"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.159"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.933" />
+
+    <TextView
+        android:id="@+id/timev"
+        android:layout_width="148dp"
+        android:layout_height="41dp"
+        android:text="Time"
+        android:textColor="#C2185B"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.722"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.843" />
+
+    <TextView
+        android:id="@+id/dates"
+        android:layout_width="148dp"
+        android:layout_height="41dp"
+        android:text="Traveling Dates"
+        android:textColor="#C2185B"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.844" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="332dp"
+        android:layout_height="46dp"
+        android:text="Name"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.618" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="393dp"
@@ -74,18 +129,19 @@
 
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="390dp"
         android:layout_height="61dp"
         android:background="@color/design_default_color_background"
         android:backgroundTint="@color/purple_200"
+        android:onClick="seats2"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.38"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.362"
-        android:onClick="seats2">
+        app:layout_constraintVertical_bias="0.362">
 
         <ImageView
             android:id="@+id/trainicon2"
@@ -140,19 +196,19 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="393dp"
-        android:layout_height="58dp"
+        android:layout_width="396dp"
+        android:layout_height="57dp"
         android:layout_marginTop="97dp"
         android:background="@color/design_default_color_background"
         android:backgroundTint="@color/purple_200"
+        android:onClick="seats3"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintHorizontal_bias="0.296"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.414"
-        android:onClick="seats3">
+        app:layout_constraintVertical_bias="0.415">
 
         <ImageView
             android:id="@+id/trainicon3"
@@ -199,10 +255,23 @@
             android:id="@+id/amount3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="9dp"
             android:layout_marginTop="7dp"
             android:text="Amount"
             android:textSize="16sp" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/fromto"
+        android:layout_width="332dp"
+        android:layout_height="46dp"
+        android:text="Trip"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.741" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
