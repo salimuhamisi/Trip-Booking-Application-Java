@@ -36,7 +36,7 @@ public class BookingActivity extends AppCompatActivity {
         tripPrices = new TripPrices();
 
         DatePicker = findViewById(R.id.calendar);
-        displayDate = (TextView) findViewById(R.id.travelDate);
+        displayDate = findViewById(R.id.travelDate);
         viewPrice = findViewById(R.id.showprice);
         tFrom = findViewById(R.id.from);
         tTo = findViewById(R.id.towards);

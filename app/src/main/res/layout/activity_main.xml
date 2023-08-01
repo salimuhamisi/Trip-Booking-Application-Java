@@ -63,6 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Forgot password?"
+                android:onClick="Admin"
                 android:textColor="#2196F3"
                 android:textColorHint="#03A9F4"
                 android:textStyle="bold"

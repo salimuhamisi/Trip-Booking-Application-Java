@@ -43,6 +43,5 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:22.1.0' // Replace with the latest version
     implementation 'com.google.firebase:firebase-database:20.2.2'
 
-    //implementation 'com.itextpdf:itext7-core:7.1.15'
-    //implementation 'com.itextpdf:itext7-layout:7.1.15'
+    implementation 'com.itextpdf:itextg:5.5.10'
 }

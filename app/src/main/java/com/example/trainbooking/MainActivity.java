@@ -83,4 +83,8 @@ public class MainActivity extends AppCompatActivity {
     public void toSignup(View view) {
         startActivity(new Intent(MainActivity.this, signupActivity.class));
     }
+
+    public void Admin(View view) {
+        startActivity(new Intent(MainActivity.this, AdminActivity.class));
+    }
 }

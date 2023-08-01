@@ -30,7 +30,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 
-public class ConfirmationActivity extends AppCompatActivity {
+public class ConfirmationActivity3 extends AppCompatActivity {
     private DatabaseReference database;
 
     private EditText namec, mpesac;
@@ -67,7 +67,7 @@ public class ConfirmationActivity extends AppCompatActivity {
         });
 
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-        database = FirebaseDatabase.getInstance().getReference("Trip 1 Travelers 06:00 AM");
+        database = FirebaseDatabase.getInstance().getReference("Trip 3 Travelers 6:00 PM");
 
         namec = findViewById(R.id.namec);
         mpesac = findViewById(R.id.mpesac);
@@ -81,7 +81,7 @@ public class ConfirmationActivity extends AppCompatActivity {
         // Receive the price value from the previous activity
 
         Intent rDetails = getIntent();
-        double newAmount = rDetails.getDoubleExtra("cAmount", 0.0);
+        String newAmount = rDetails.getStringExtra("cAmount");
         String newfromto = rDetails.getStringExtra("cTrip");
         String newtraveldates = rDetails.getStringExtra("cDate");
         String newSeat = rDetails.getStringExtra("seatN");
@@ -91,7 +91,7 @@ public class ConfirmationActivity extends AppCompatActivity {
 
         confirmTrip.setText(newfromto);
         confirmDate.setText(newtraveldates);
-        //confirmAmount.setText(String.valueOf(newAmount));
+        confirmAmount.setText(newAmount);
         seatnumberc.setText(newSeat);
 
 
@@ -99,32 +99,27 @@ public class ConfirmationActivity extends AppCompatActivity {
     }
 
     public void createPdf(View view) {
-        Intent rDetails = getIntent();
-        double newAmount = rDetails.getDoubleExtra("cAmount", 0.0);
 
 
         //get the details
         String cTrip = confirmTrip.getText().toString();
         String cDate = confirmDate.getText().toString();
-        //double newAmount = confirmAmount.getText().toString();
-        //double cAmountDouble = Double.parseDouble(confirmAmount.getText().toString());
+        String cAmount = confirmAmount.getText().toString();
         String seatNo = seatnumberc.getText().toString();
         String cName = namec.getText().toString().trim();
         String cmpesa = mpesac.getText().toString().trim();
 
-        // Convert cAmount to a double
-
-
+        //Take a record to the database
         // Save the Traveler's information to the Firebase Realtime Database
-        DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("Trip 1 Travelers 06:00 AM");
+        DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("Trip 3 Travelers 6:00 PM");
         String travelerId = databaseRef.push().getKey(); // Generate a unique key for the traveler
-        Traveler traveler = new Traveler(cTrip, cDate, newAmount, seatNo, cName, cmpesa);
+        Traveler traveler = new Traveler(cTrip, cDate, cAmount, seatNo, cName, cmpesa);
         databaseRef.child(travelerId).setValue(traveler)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
                         // Traveler information saved successfully
-                        Toast.makeText(ConfirmationActivity.this, "Booking was Successful.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ConfirmationActivity3.this, "Booking was Successful.", Toast.LENGTH_SHORT).show();
 
                         // TODO: Update the seat status in the UI and disable the selected seat
                         // You can do this by changing the seat color and setting a flag to indicate that the seat is occupied.
@@ -134,14 +129,14 @@ public class ConfirmationActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         // Failed to save traveler information
-                        Toast.makeText(ConfirmationActivity.this, "Booking Failed.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ConfirmationActivity3.this, "Booking Failed.", Toast.LENGTH_SHORT).show();
                     }
                 });
 
 
 
         //send the details to ticketlayout Activity
-        Intent sDetails = new Intent(ConfirmationActivity.this, TicketLayoutActivity.class);
+        Intent sDetails = new Intent(ConfirmationActivity3.this, TicketLayoutActivity.class);
         sDetails.putExtra("cTrip", cTrip); // Pass the price value to the next activity
         sDetails.putExtra("cDate", cDate); // Pass the tripSegment string to the next activity
         sDetails.putExtra("cAmount", cAmount); // Pass the travel dates string to the next activity
