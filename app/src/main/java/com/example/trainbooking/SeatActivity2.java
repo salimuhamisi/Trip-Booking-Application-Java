@@ -57,7 +57,6 @@ public class SeatActivity2 extends AppCompatActivity {
 
         trip1.setText(newfromto);
         date1.setText(newtraveldates + "   "+ newtimev);
-        //amount.setText(String.valueOf(newAmount));
         amount.setText(newAmount);
 
 

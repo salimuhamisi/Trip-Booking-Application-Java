@@ -48,7 +48,7 @@ public class SeatActivity1 extends AppCompatActivity {
 
         // Receive the price value from the previous activity
         Intent rDetails = getIntent();
-        double newAmount = rDetails.getDoubleExtra("newAmount", 0.0);
+        String newAmount = rDetails.getStringExtra("newAmount");
         String newfromto = rDetails.getStringExtra("newfromto");
         String newtraveldates = rDetails.getStringExtra("newtraveldates");
         String newtimev = rDetails.getStringExtra("newtimev");
@@ -57,8 +57,7 @@ public class SeatActivity1 extends AppCompatActivity {
 
         trip1.setText(newfromto);
         date1.setText(newtraveldates + "   "+ newtimev);
-        //amount.setText(String.valueOf(newAmount));
-        amount.setText(String.valueOf(newAmount));
+        amount.setText(newAmount);
 
     }
 

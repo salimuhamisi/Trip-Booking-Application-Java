@@ -78,10 +78,9 @@ public class ConfirmationActivity extends AppCompatActivity {
         pay = findViewById(R.id.payc);
 
 
-        // Receive the price value from the previous activity
-
+        // Receive values from the previous activity
         Intent rDetails = getIntent();
-        double newAmount = rDetails.getDoubleExtra("cAmount", 0.0);
+        String newAmount = rDetails.getStringExtra("cAmount");
         String newfromto = rDetails.getStringExtra("cTrip");
         String newtraveldates = rDetails.getStringExtra("cDate");
         String newSeat = rDetails.getStringExtra("seatN");
@@ -91,7 +90,7 @@ public class ConfirmationActivity extends AppCompatActivity {
 
         confirmTrip.setText(newfromto);
         confirmDate.setText(newtraveldates);
-        //confirmAmount.setText(String.valueOf(newAmount));
+        confirmAmount.setText(newAmount);
         seatnumberc.setText(newSeat);
 
 
@@ -99,26 +98,29 @@ public class ConfirmationActivity extends AppCompatActivity {
     }
 
     public void createPdf(View view) {
-        Intent rDetails = getIntent();
-        double newAmount = rDetails.getDoubleExtra("cAmount", 0.0);
+        //Intent rDetails = getIntent();
+        //double newAmount = rDetails.getDoubleExtra("cAmount", 0.0);
 
 
         //get the details
         String cTrip = confirmTrip.getText().toString();
         String cDate = confirmDate.getText().toString();
-        //double newAmount = confirmAmount.getText().toString();
-        //double cAmountDouble = Double.parseDouble(confirmAmount.getText().toString());
+        String newAmount = confirmAmount.getText().toString();
         String seatNo = seatnumberc.getText().toString();
         String cName = namec.getText().toString().trim();
         String cmpesa = mpesac.getText().toString().trim();
 
-        // Convert cAmount to a double
 
+        // Convert the newAmount to a double and store it in the traveler object
+        double amount = Double.parseDouble(newAmount);
 
         // Save the Traveler's information to the Firebase Realtime Database
         DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("Trip 1 Travelers 06:00 AM");
         String travelerId = databaseRef.push().getKey(); // Generate a unique key for the traveler
-        Traveler traveler = new Traveler(cTrip, cDate, newAmount, seatNo, cName, cmpesa);
+        Traveler traveler = new Traveler(cTrip, cDate, amount, seatNo, cName, cmpesa);
+
+        traveler.setAmount(amount);
+
         databaseRef.child(travelerId).setValue(traveler)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -144,7 +146,7 @@ public class ConfirmationActivity extends AppCompatActivity {
         Intent sDetails = new Intent(ConfirmationActivity.this, TicketLayoutActivity.class);
         sDetails.putExtra("cTrip", cTrip); // Pass the price value to the next activity
         sDetails.putExtra("cDate", cDate); // Pass the tripSegment string to the next activity
-        sDetails.putExtra("cAmount", cAmount); // Pass the travel dates string to the next activity
+        sDetails.putExtra("cAmount", newAmount); // Pass the travel dates string to the next activity
         sDetails.putExtra("seatNo", seatNo); // Pass the travel dates string to the next activity
         sDetails.putExtra("cName", cName); // Pass the travel dates string to the next activity
         sDetails.putExtra("cmpesa", cmpesa); // Pass the travel dates string to the next activity

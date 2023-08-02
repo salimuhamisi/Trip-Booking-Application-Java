@@ -3,7 +3,7 @@ package com.example.trainbooking;
 public class Traveler {
     private String trip;
     private String date;
-    private String amount;
+    private double amount; // Change the type to double
     private String seatNumber;
     private String name;
     private String mpesa;
@@ -12,7 +12,7 @@ public class Traveler {
         // Default constructor required for Firebase Realtime Database
     }
 
-    public Traveler(String trip, String date, String amount, String seatNumber, String name, String mpesa) {
+    public Traveler(String trip, String date, double amount, String seatNumber, String name, String mpesa) {
         this.trip = trip;
         this.date = date;
         this.amount = amount;
@@ -30,7 +30,7 @@ public class Traveler {
         return date;
     }
 
-    public String getAmount() {
+    public double getAmount() {
         return amount;
     }
 
@@ -55,7 +55,7 @@ public class Traveler {
         this.date = date;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 
@@ -71,4 +71,3 @@ public class Traveler {
         this.mpesa = mpesa;
     }
 }
-

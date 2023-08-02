@@ -109,11 +109,15 @@ public class ConfirmationActivity2 extends AppCompatActivity {
         String cName = namec.getText().toString().trim();
         String cmpesa = mpesac.getText().toString().trim();
 
-        //Take a record to the database
+        // Convert the newAmount to a double and store it in the traveler object
+        double amount = Double.parseDouble(cAmount);
         // Save the Traveler's information to the Firebase Realtime Database
         DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("Trip 2 Travelers 1:00 PM");
         String travelerId = databaseRef.push().getKey(); // Generate a unique key for the traveler
-        Traveler traveler = new Traveler(cTrip, cDate, cAmount, seatNo, cName, cmpesa);
+        Traveler traveler = new Traveler(cTrip, cDate, amount, seatNo, cName, cmpesa);
+
+        traveler.setAmount(amount);
+
         databaseRef.child(travelerId).setValue(traveler)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
