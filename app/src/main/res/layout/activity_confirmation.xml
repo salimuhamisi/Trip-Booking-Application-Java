@@ -4,24 +4,102 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ConfirmationActivity">
+    android:background="@color/purple_200"
+    tools:context=".MainActivity">
+
+
+    <EditText
+        android:id="@+id/cvv"
+        android:layout_width="100dp"
+        android:layout_height="34dp"
+        android:background="@drawable/edit_text_background"
+        android:ems="10"
+        android:hint="CVV"
+        android:inputType="textPersonName"
+        android:paddingLeft="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.855"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.819"
+        android:visibility="gone"/>
+
+    <EditText
+        android:id="@+id/account"
+        android:layout_width="164dp"
+        android:layout_height="38dp"
+        android:background="@drawable/edit_text_background"
+        android:ems="10"
+        android:hint="Account Number"
+        android:inputType="textPersonName"
+        android:paddingLeft="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.305"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.823"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/payWith2"
+        android:layout_width="79dp"
+        android:layout_height="31dp"
+        android:text="Pay With"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.201"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.734" />
+
+    <ImageView
+        android:id="@+id/mpesa"
+        android:layout_width="72dp"
+        android:layout_height="25dp"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.545"
+        app:srcCompat="@drawable/mpesa"/>
+
+
+    <ImageView
+        android:id="@+id/visa"
+        android:layout_width="69dp"
+        android:layout_height="36dp"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.459"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.732"
+        app:srcCompat="@drawable/visa" />
 
     <TextView
         android:id="@+id/seatnumberc"
-        android:layout_width="282dp"
-        android:layout_height="61dp"
+        android:layout_width="87dp"
+        android:layout_height="32dp"
         android:text="Seat Number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.343"
+        app:layout_constraintHorizontal_bias="0.185"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.522" />
+        app:layout_constraintVertical_bias="0.323" />
 
     <EditText
         android:id="@+id/namec"
-        android:layout_width="293dp"
-        android:layout_height="51dp"
+        android:layout_width="199dp"
+        android:layout_height="47dp"
         android:background="@drawable/edit_text_background"
         android:ems="10"
         android:hint="Name"
@@ -29,51 +107,51 @@
         android:paddingLeft="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.364"
+        app:layout_constraintHorizontal_bias="0.283"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.651" />
+        app:layout_constraintVertical_bias="0.422" />
 
     <TextView
         android:id="@+id/tripc"
-        android:layout_width="266dp"
-        android:layout_height="50dp"
+        android:layout_width="233dp"
+        android:layout_height="43dp"
         android:text="Trip"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.303"
+        app:layout_constraintHorizontal_bias="0.337"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.121" />
+        app:layout_constraintVertical_bias="0.045" />
 
     <TextView
         android:id="@+id/datec"
-        android:layout_width="268dp"
-        android:layout_height="52dp"
+        android:layout_width="237dp"
+        android:layout_height="40dp"
         android:text="Travelling Dates"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.307"
+        app:layout_constraintHorizontal_bias="0.344"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.243" />
+        app:layout_constraintVertical_bias="0.141" />
 
     <TextView
         android:id="@+id/amountc"
-        android:layout_width="271dp"
-        android:layout_height="61dp"
+        android:layout_width="100dp"
+        android:layout_height="36dp"
         android:text="Amount"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.303"
+        app:layout_constraintHorizontal_bias="0.192"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.376" />
+        app:layout_constraintVertical_bias="0.233" />
 
     <EditText
         android:id="@+id/mpesac"
-        android:layout_width="296dp"
-        android:layout_height="54dp"
+        android:layout_width="192dp"
+        android:layout_height="41dp"
         android:background="@drawable/edit_text_background"
         android:ems="10"
         android:hint="Mpesa Number"
@@ -81,21 +159,36 @@
         android:paddingLeft="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.387"
+        app:layout_constraintHorizontal_bias="0.305"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8" />
+        app:layout_constraintVertical_bias="0.646"
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/payc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="createPdf"
         android:text="PAY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.287"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.922" />
+        app:layout_constraintVertical_bias="0.919" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="79dp"
+        android:layout_height="31dp"
+        android:text="Pay With"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.201"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

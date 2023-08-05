@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
@@ -11,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,14 +36,56 @@ import java.io.OutputStream;
 public class ConfirmationActivity2 extends AppCompatActivity {
     private DatabaseReference database;
 
-    private EditText namec, mpesac;
+    private EditText namec, mpesac, cvv, account;
     private TextView confirmAmount, confirmDate, confirmTrip, seatnumberc;
+    private ImageView mpesa, visa;
     private Button pay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmation);
+
+        mpesa = findViewById(R.id.mpesa);
+        visa = findViewById(R.id.visa);
+        cvv = findViewById(R.id.cvv);
+        account = findViewById(R.id.account);
+        pay = findViewById(R.id.payc);
+
+        pay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog();
+            }
+        });
+
+        mpesa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mpesac.getVisibility() == View.VISIBLE) {
+                    // Hide the EditText
+                    mpesac.setVisibility(View.GONE);
+                } else {
+                    // Show the EditText
+                    mpesac.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        visa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (account.getVisibility() == View.VISIBLE) {
+                    // Hide the EditTexts
+                    account.setVisibility(View.GONE);
+                    cvv.setVisibility(View.GONE); // Assuming visac is the ID of the second EditText
+                } else {
+                    // Show the EditTexts
+                    cvv.setVisibility(View.VISIBLE);
+                    account.setVisibility(View.VISIBLE);
+                }
+            }
+        });
 
         // Retrieve the current user's ID
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -98,7 +143,24 @@ public class ConfirmationActivity2 extends AppCompatActivity {
 
     }
 
-    public void createPdf(View view) {
+    private void showDialog() {
+
+        String newAmount = confirmAmount.getText().toString();
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Confirm pay Ksh. " + newAmount + " to KENYA RAILWAYS COMPANY")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        processPayment(pay); // Pass the 'pay' button view as the parameter
+                    }
+                })
+                .setNegativeButton("Cancel", null)
+                .show();
+    }
+
+
+    public void processPayment(View view) {
 
 
         //get the details

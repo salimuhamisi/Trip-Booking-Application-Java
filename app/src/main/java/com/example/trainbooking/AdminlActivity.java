@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -20,12 +19,13 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity {
+public class AdminlActivity extends AppCompatActivity {
 
     private EditText loginEmail, loginPassword;
     private TextView forgotPassword;
     private Button loginButton;
     private FirebaseAuth auth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_adminl);
 
         auth = FirebaseAuth.getInstance();
 
@@ -73,10 +73,10 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             // Show a success message to the user or navigate to a success screen
-                            Toast.makeText(MainActivity.this, "Check your inbox for password reset email", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AdminlActivity.this, "Check your inbox for password reset email", Toast.LENGTH_SHORT).show();
                         } else {
                             // Show an error message to the user or handle the error as needed
-                            Toast.makeText(MainActivity.this, "Password reset email could not be sent", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AdminlActivity.this, "Password reset email could not be sent", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -102,24 +102,19 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(MainActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AdminlActivity.this, "Login successful", Toast.LENGTH_SHORT).show();
                             // Navigate to the BookingActivity
-                            startActivity(new Intent(MainActivity.this, BookingActivity.class));
+                            startActivity(new Intent(AdminlActivity.this, AdminActivity.class));
                             finish();
                         } else {
                             // Login failed
-                            Toast.makeText(MainActivity.this, "Login failed!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AdminlActivity.this, "Login failed!", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
     }
 
     public void toSignup(View view) {
-        startActivity(new Intent(MainActivity.this, signupActivity.class));
-    }
-
-    public void toAdminLogin(View view) {
-        startActivity(new Intent(MainActivity.this, AdminlActivity.class));
-
+        startActivity(new Intent(AdminlActivity.this, signupActivity.class));
     }
 }
